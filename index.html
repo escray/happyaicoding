@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>走走 · 全栈工程师</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #111111;
+        --paper: #fff7e8;
+        --yellow: #ffe14d;
+        --pink: #ff5c8a;
+        --cyan: #4de3ff;
+        --lime: #b6ff4d;
+        --orange: #ff8a3d;
+        --shadow: 6px 6px 0 var(--ink);
+        --shadow-lg: 10px 10px 0 var(--ink);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Space Grotesk", system-ui, sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+        background-image:
+          radial-gradient(circle at 12px 12px, #11111122 2px, transparent 2.5px),
+          linear-gradient(#1111110d 1px, transparent 1px),
+          linear-gradient(90deg, #1111110d 1px, transparent 1px);
+        background-size: 28px 28px, 28px 28px, 28px 28px;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .page {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 32px 20px 56px;
+      }
+
+      .stamp {
+        display: inline-block;
+        border: 3px solid var(--ink);
+        background: var(--lime);
+        padding: 4px 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        box-shadow: 3px 3px 0 var(--ink);
+        transform: rotate(-2deg);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.4fr 0.9fr;
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+
+      .card {
+        border: 4px solid var(--ink);
+        box-shadow: var(--shadow);
+        background: white;
+      }
+
+      .hero-main {
+        background: var(--yellow);
+        padding: 32px 28px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-main::after {
+        content: "";
+        position: absolute;
+        right: -40px;
+        bottom: -40px;
+        width: 140px;
+        height: 140px;
+        background: var(--pink);
+        border: 4px solid var(--ink);
+        transform: rotate(18deg);
+      }
+
+      h1 {
+        font-family: "Archivo Black", sans-serif;
+        font-size: clamp(48px, 8vw, 92px);
+        line-height: 0.9;
+        margin: 16px 0 12px;
+      }
+
+      .role {
+        display: inline-block;
+        background: white;
+        border: 3px solid var(--ink);
+        padding: 8px 14px;
+        font-size: 22px;
+        font-weight: 700;
+        box-shadow: 4px 4px 0 var(--ink);
+      }
+
+      .hero-side {
+        background: var(--cyan);
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .avatar {
+        width: 92px;
+        height: 92px;
+        border: 4px solid var(--ink);
+        background: var(--pink);
+        box-shadow: var(--shadow);
+        display: grid;
+        place-items: center;
+        font-family: "Archivo Black", sans-serif;
+        font-size: 34px;
+      }
+
+      .meta {
+        display: grid;
+        gap: 8px;
+        font-weight: 600;
+      }
+
+      .meta span {
+        display: block;
+        background: white;
+        border: 3px solid var(--ink);
+        padding: 8px 10px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 20px;
+      }
+
+      .section {
+        padding: 22px;
+      }
+
+      .section h2 {
+        font-family: "Archivo Black", sans-serif;
+        font-size: 28px;
+        margin-bottom: 16px;
+        display: inline-block;
+        background: var(--orange);
+        border: 3px solid var(--ink);
+        padding: 4px 10px;
+        box-shadow: 4px 4px 0 var(--ink);
+      }
+
+      .job {
+        border-top: 3px solid var(--ink);
+        padding: 14px 0;
+      }
+
+      .job:first-of-type {
+        border-top: 0;
+        padding-top: 0;
+      }
+
+      .job h3 {
+        font-size: 20px;
+        margin-bottom: 4px;
+      }
+
+      .when {
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      ul {
+        padding-left: 18px;
+        display: grid;
+        gap: 6px;
+      }
+
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .chip {
+        border: 3px solid var(--ink);
+        padding: 6px 10px;
+        font-weight: 700;
+        box-shadow: 3px 3px 0 var(--ink);
+      }
+
+      .chip:nth-child(3n + 1) {
+        background: var(--yellow);
+      }
+
+      .chip:nth-child(3n + 2) {
+        background: var(--lime);
+      }
+
+      .chip:nth-child(3n) {
+        background: var(--pink);
+        color: white;
+      }
+
+      .project {
+        background: white;
+        border: 3px solid var(--ink);
+        padding: 12px;
+        margin-bottom: 12px;
+        box-shadow: 4px 4px 0 var(--ink);
+      }
+
+      .project h3 {
+        margin-bottom: 6px;
+      }
+
+      .footer {
+        margin-top: 20px;
+        background: var(--pink);
+        padding: 18px 22px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        color: white;
+        font-weight: 700;
+      }
+
+      .btn {
+        display: inline-block;
+        background: var(--yellow);
+        color: var(--ink);
+        text-decoration: none;
+        border: 3px solid var(--ink);
+        padding: 8px 14px;
+        font-weight: 800;
+        box-shadow: 4px 4px 0 var(--ink);
+      }
+
+      .btn:hover,
+      .chip:hover,
+      .project:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0 var(--ink);
+      }
+
+      @media (max-width: 840px) {
+        .hero,
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-main::after {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <article class="card hero-main">
+          <span class="stamp">Available for work</span>
+          <h1>走走</h1>
+          <p class="role">Full-stack Engineer</p>
+        </article>
+        <aside class="card hero-side">
+          <div class="avatar">走</div>
+          <div class="meta">
+            <span>📍 Beijing / Remote</span>
+            <span>✉️ zouzou.dev@example.com</span>
+            <span>🌐 github.com/zouzou</span>
+            <span>💬 write code，and make product</span>
+          </div>
+        </aside>
+      </section>
+
+      <section class="grid">
+        <div class="stack">
+          <article class="card section">
+            <h2>Experience</h2>
+            <div class="job">
+              <h3>Senior Full-stack Engineer · 独立产品工作室</h3>
+              <p class="when">2023 — 现在</p>
+              <ul>
+                <li>从 0 到 1 搭建 SaaS 产品：Next.js + NestJS + PostgreSQL。</li>
+                <li>把发布周期从两周压到三天，同时把核心接口延迟降到 120ms 内。</li>
+                <li>负责支付、权限、观测性和 CI/CD，线上事故同比下降 60%。</li>
+              </ul>
+            </div>
+            <div class="job">
+              <h3>Full-stack Engineer · 某消费互联网公司</h3>
+              <p class="when">2020 — 2023</p>
+              <ul>
+                <li>主导商家后台重构，日活操作效率提升 35%。</li>
+                <li>设计统一 BFF 层，前端迭代不再被 8 个微服务拖慢。</li>
+                <li>带 4 人小队，完成活动引擎和实时数据看板。</li>
+              </ul>
+            </div>
+            <div class="job">
+              <h3>Frontend Engineer · 创业公司</h3>
+              <p class="when">2018 — 2020</p>
+              <ul>
+                <li>用 React 重写核心交易流程，转化率提升 18%。</li>
+                <li>建立组件库和设计 token，把页面交付从“拼样式”变成“拼积木”。</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <div class="stack">
+          <article class="card section">
+            <h2>技能</h2>
+            <div class="skills">
+              <span class="chip">TypeScript</span>
+              <span class="chip">React / Next.js</span>
+              <span class="chip">Node.js / NestJS</span>
+              <span class="chip">PostgreSQL</span>
+              <span class="chip">Redis</span>
+              <span class="chip">Docker</span>
+              <span class="chip">AWS / Cloudflare</span>
+              <span class="chip">GraphQL</span>
+              <span class="chip">系统设计</span>
+              <span class="chip">产品感觉</span>
+            </div>
+          </article>
+
+          <article class="card section" style="margin-top: 20px">
+            <h2>作品</h2>
+            <div class="project">
+              <h3>走走看板</h3>
+              <p>给小团队用的轻量项目管理工具。拖拽、实时协作、一键部署。</p>
+            </div>
+            <div class="project">
+              <h3>Brutal UI Kit</h3>
+              <p>一套开源 neobrutalism 组件库，GitHub 2.1k stars。</p>
+            </div>
+            <div class="project">
+              <h3>PayRoute</h3>
+              <p>统一支付路由服务，支持多渠道对账和失败自动重试。</p>
+            </div>
+          </article>
+
+          <article class="card section" style="margin-top: 20px">
+            <h2>关于</h2>
+            <p>
+              走走喜欢把复杂系统拆成能上线的小块。白天写全栈，晚上研究字体和交互。信条是：界面要有脾气，代码要有边界。
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <footer class="card footer">
+        <p>想一起做产品？直接发邮件。走着走着，就把事情做成。</p>
+        <a class="btn" href="mailto:zouzou.dev@example.com">约聊聊 →</a>
+      </footer>
+    </main>
+  </body>
+</html>
