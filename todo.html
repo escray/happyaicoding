@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>走走 Todo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./todo.css" />
+  </head>
+  <body class="todo-page">
+    <main class="page">
+      <header class="hero card">
+        <span class="stamp">Daily list</span>
+        <h1>走走 Todo</h1>
+        <p class="tagline">写下来，做完，划掉。</p>
+        <a class="back" href="./index.html">← 返回简历</a>
+      </header>
+
+      <section class="card app-shell">
+        <div class="todo-app">
+          <form id="todo-form" class="composer" autocomplete="off">
+            <label class="sr-only" for="todo-input">新任务</label>
+            <input
+              id="todo-input"
+              name="title"
+              type="text"
+              maxlength="120"
+              placeholder="今天要做什么？"
+              required
+            />
+            <button type="submit" class="todo-btn">加入 →</button>
+          </form>
+
+          <div class="toolbar">
+            <p id="todo-count" class="count">0 项待办</p>
+            <div class="filters" role="tablist" aria-label="筛选任务">
+              <button type="button" class="filter-chip is-active" data-filter="all">全部</button>
+              <button type="button" class="filter-chip" data-filter="active">未完成</button>
+              <button type="button" class="filter-chip" data-filter="completed">已完成</button>
+            </div>
+          </div>
+
+          <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+
+          <div class="footer-bar">
+            <p id="empty-hint" class="hint">还没有任务。先写一件小事。</p>
+            <button type="button" id="clear-completed" class="todo-btn ghost">清除已完成</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./todo.js"></script>
+  </body>
+</html>

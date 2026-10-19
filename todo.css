@@ -1,0 +1,261 @@
+.todo-page {
+  min-height: 100vh;
+  background: var(--paper, #fff7e8);
+  color: var(--ink, #111111);
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  background-image:
+    radial-gradient(circle at 12px 12px, #11111122 2px, transparent 2.5px),
+    linear-gradient(#1111110d 1px, transparent 1px),
+    linear-gradient(90deg, #1111110d 1px, transparent 1px);
+  background-size: 28px 28px, 28px 28px, 28px 28px;
+}
+
+.todo-page * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.todo-page .page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 20px 56px;
+}
+
+.todo-page .card {
+  border: 4px solid var(--ink, #111111);
+  box-shadow: 6px 6px 0 var(--ink, #111111);
+  background: white;
+}
+
+.todo-page .hero {
+  background: var(--yellow, #ffe14d);
+  padding: 28px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.todo-page .hero::after {
+  content: "";
+  position: absolute;
+  right: -28px;
+  bottom: -36px;
+  width: 110px;
+  height: 110px;
+  background: var(--pink, #ff5c8a);
+  border: 4px solid var(--ink, #111111);
+  transform: rotate(18deg);
+}
+
+.todo-page .stamp {
+  display: inline-block;
+  border: 3px solid var(--ink, #111111);
+  background: var(--lime, #b6ff4d);
+  padding: 4px 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 3px 3px 0 var(--ink, #111111);
+  transform: rotate(-2deg);
+}
+
+.todo-page h1 {
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(40px, 8vw, 72px);
+  line-height: 0.9;
+  margin: 16px 0 10px;
+}
+
+.todo-page .tagline {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.todo-page .back {
+  display: inline-block;
+  margin-top: 14px;
+  font-weight: 800;
+  color: inherit;
+}
+
+.todo-page .app-shell {
+  padding: 22px;
+}
+
+.todo-app .composer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.todo-app input[type="text"] {
+  width: 100%;
+  border: 3px solid var(--ink, #111111);
+  background: var(--paper, #fff7e8);
+  padding: 12px 14px;
+  font: inherit;
+  font-size: 16px;
+  box-shadow: 3px 3px 0 var(--ink, #111111);
+}
+
+.todo-app input[type="text"]:focus {
+  outline: 3px solid var(--cyan, #4de3ff);
+  outline-offset: 2px;
+}
+
+.todo-app .todo-btn {
+  display: inline-block;
+  background: var(--cyan, #4de3ff);
+  color: var(--ink, #111111);
+  border: 3px solid var(--ink, #111111);
+  padding: 10px 14px;
+  font: inherit;
+  font-weight: 800;
+  box-shadow: 4px 4px 0 var(--ink, #111111);
+  cursor: pointer;
+}
+
+.todo-app .todo-btn.ghost {
+  background: white;
+}
+
+.todo-app .todo-btn:hover,
+.todo-app .filter-chip:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--ink, #111111);
+}
+
+.todo-app .toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.todo-app .count {
+  font-weight: 700;
+}
+
+.todo-app .filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.todo-app .filter-chip {
+  border: 3px solid var(--ink, #111111);
+  padding: 6px 10px;
+  font: inherit;
+  font-weight: 700;
+  background: white;
+  color: var(--ink, #111111);
+  box-shadow: 3px 3px 0 var(--ink, #111111);
+  cursor: pointer;
+}
+
+.todo-app .filter-chip.is-active {
+  background: var(--orange, #ff8a3d);
+}
+
+.todo-app .todo-list {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  padding-left: 0;
+}
+
+.todo-app .todo-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  border: 3px solid var(--ink, #111111);
+  padding: 10px 12px;
+  box-shadow: 4px 4px 0 var(--ink, #111111);
+  background: white;
+}
+
+.todo-app .todo-item.completed .todo-title {
+  text-decoration: line-through;
+  opacity: 0.55;
+}
+
+.todo-app .todo-item input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  accent-color: var(--pink, #ff5c8a);
+  cursor: pointer;
+}
+
+.todo-app .todo-title {
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.todo-app .delete {
+  border: 3px solid var(--ink, #111111);
+  background: var(--pink, #ff5c8a);
+  color: white;
+  font: inherit;
+  font-weight: 800;
+  padding: 4px 8px;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--ink, #111111);
+}
+
+.todo-app .footer-bar {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.todo-app .hint {
+  font-weight: 600;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.todo-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.todo-panel-head h2 {
+  margin-bottom: 0;
+}
+
+.todo-panel-copy {
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+@media (max-width: 560px) {
+  .todo-app .composer {
+    grid-template-columns: 1fr;
+  }
+
+  .todo-page .hero::after {
+    display: none;
+  }
+}

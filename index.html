@@ -224,11 +224,13 @@
       }
 
       .project {
+        display: block;
         background: white;
         border: 3px solid var(--ink);
         padding: 12px;
         margin-bottom: 12px;
         box-shadow: 4px 4px 0 var(--ink);
+        text-decoration: none;
       }
 
       .project h3 {
@@ -277,6 +279,7 @@
         }
       }
     </style>
+    <link rel="stylesheet" href="./todo.css" />
   </head>
   <body>
     <main class="page">
@@ -349,6 +352,10 @@
 
           <article class="card section" style="margin-top: 20px">
             <h2>作品</h2>
+            <a class="project" href="./todo.html">
+              <h3>走走 Todo</h3>
+              <p>独立待办页，数据和简历里的试用区共用。</p>
+            </a>
             <div class="project">
               <h3>走走看板</h3>
               <p>给小团队用的轻量项目管理工具。拖拽、实时协作、一键部署。</p>
@@ -372,10 +379,49 @@
         </div>
       </section>
 
+      <section class="card section" style="margin-top: 20px">
+        <div class="todo-panel-head">
+          <h2>走走 Todo</h2>
+          <a class="btn" href="./todo.html">独立页面 →</a>
+        </div>
+        <p class="todo-panel-copy">简历里可以直接试用。完整界面在独立页面。</p>
+        <div class="todo-app">
+          <form id="todo-form" class="composer" autocomplete="off">
+            <label class="sr-only" for="todo-input">新任务</label>
+            <input
+              id="todo-input"
+              name="title"
+              type="text"
+              maxlength="120"
+              placeholder="今天要做什么？"
+              required
+            />
+            <button type="submit" class="todo-btn">加入 →</button>
+          </form>
+
+          <div class="toolbar">
+            <p id="todo-count" class="count">0 项待办</p>
+            <div class="filters" role="tablist" aria-label="筛选任务">
+              <button type="button" class="filter-chip is-active" data-filter="all">全部</button>
+              <button type="button" class="filter-chip" data-filter="active">未完成</button>
+              <button type="button" class="filter-chip" data-filter="completed">已完成</button>
+            </div>
+          </div>
+
+          <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+
+          <div class="footer-bar">
+            <p id="empty-hint" class="hint">还没有任务。先写一件小事。</p>
+            <button type="button" id="clear-completed" class="todo-btn ghost">清除已完成</button>
+          </div>
+        </div>
+      </section>
+
       <footer class="card footer">
         <p>想一起做产品？直接发邮件。走着走着，就把事情做成。</p>
         <a class="btn" href="mailto:zouzou.dev@example.com">约聊聊 →</a>
       </footer>
     </main>
+    <script src="./todo.js"></script>
   </body>
 </html>
